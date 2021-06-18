@@ -1,0 +1,42 @@
+<div class="container">
+  <h2 class="table-title">Movies</h2>
+  <div class="filters">
+    <input type="radio" name="filter" id="yearsRadio" (click)="setRadio($event.target.value)" value="years">
+    <label for="yearsRadio">By year:</label>
+    <select (change)="onSelectYearChange($event.target.value)" id="yearsSelect" [attr.disabled]="yearsState ? true : null"> 
+      <option selected disabled hidden>no filter</option>
+      <option *ngFor="let year of years">{{ year }}</option>
+    </select>
+    <input type="radio" name="filter" id="genresRadio" (click)="setRadio($event.target.value)" value="genres">
+    <label for="genresRadio">By genre:</label>
+    <select (change)="onSelectGenreChange($event.target.value)" id="genresSelect" [attr.disabled]="genresState ? true : null"> 
+      <option selected disabled hidden>no filter</option>
+      <option *ngFor="let genre of genres">{{ genre }}</option>
+    </select>
+    <div class="selected-filters">
+      <div class="filter-elem" *ngFor="let elem of selectedYears">
+        <span>{{ elem }}</span>
+        <button (click)="deleteFilter($event.target)" class="remove-filter-btn">&#10005;</button>
+      </div>
+      <div class="filter-elem" *ngFor="let elem of selectedGenres">
+        <span>{{ elem }}</span>
+        <button (click)="deleteFilter($event.target)" class="remove-filter-btn">&#10005;</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="movies.length === 0">
+    <span class="loading-label">Table is loading...</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let header of tableHeaders">{{ header }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of movies">
+        <td *ngFor="let elem of movie">{{ elem }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,51 @@
+
+.container {
+    margin: 20px;
+    position: relative;
+    width: 80%;
+    margin: auto;
+    height: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid orangered;
+    padding: 10px;
+}
+
+th {
+    background-color: rgb(243, 191, 172);
+}
+
+.filters {
+    margin: 15px;
+    padding: 10px;
+}
+
+.filters > * {
+    margin-right: 10px;
+}
+
+.selected-filters {
+    margin-top: 20px;
+}
+
+.filter-elem {
+    display: inline;
+    margin-right: 10px;
+}
+
+.remove-filter-btn {
+    background: transparent;
+    border: none;
+    color: red;
+    cursor: pointer;
+}
+
+.loading-label {
+    color: darkgrey;
+    font-size: 20px;
+}
